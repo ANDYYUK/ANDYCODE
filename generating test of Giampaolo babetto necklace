@@ -1,0 +1,58 @@
+
+
+/*********babetto necklace test************
+********** Xinan & Kostas 2018 ************/
+
+polyCube -name "MyCube0";
+	$v0 = eval("pointPosition MyCube0.vtx[0]");
+	$v1 = eval("pointPosition MyCube0.vtx[1]");
+	$v2 = eval("pointPosition MyCube0.vtx[2]");
+	$v3 = eval("pointPosition MyCube0.vtx[3]");
+	$v4 = eval("pointPosition MyCube0.vtx[4]");
+	$v5 = eval("pointPosition MyCube0.vtx[5]");
+	$v6 = eval("pointPosition MyCube0.vtx[6]");
+	$v7 = eval("pointPosition MyCube0.vtx[7]");
+
+	int $n=20;
+	for($i=1;$i<$n;$i+=2){    
+	//51 13 5
+	    duplicate -name("$MyCube"+$i);
+	    $a = `angleBetween -euler 
+	      -v1 ($v5[0]-$v1[0]) ($v5[1]-$v1[1]) ($v5[2]-$v1[2])  
+	      -v2 ($v1[0]-$v3[0]) ($v1[1]-$v3[1]) ($v1[2]-$v3[2])`;	
+	rotate  -r -p  $v5[0] $v5[1] $v5[2] $a[0] $a[1] $a[2];
+	
+	$v0 = eval("pointPosition MyCube"+$i+".vtx[0]");
+	$v1 = eval("pointPosition MyCube"+$i+".vtx[1]");
+	$v2 = eval("pointPosition MyCube"+$i+".vtx[2]");
+	$v3 = eval("pointPosition MyCube"+$i+".vtx[3]");
+	$v4 = eval("pointPosition MyCube"+$i+".vtx[4]");
+	$v5 = eval("pointPosition MyCube"+$i+".vtx[5]");
+	$v6 = eval("pointPosition MyCube"+$i+".vtx[6]");
+	$v7 = eval("pointPosition MyCube"+$i+".vtx[7]");
+	
+	print ("pointPosition MyCube"+$i+".vtx[0]");
+			refresh -f;
+		pause -sec 0.9;
+	//10 03 0
+
+	int $o=$i+1;
+	duplicate -name ("MyCube"+$o);
+	$b = `angleBetween -euler 
+	      -v1 ($v1[0]-$v0[0]) ($v1[1]-$v0[1]) ($v1[2]-$v0[2])  
+	      -v2 ($v0[0]-$v3[0]) ($v0[1]-$v3[1]) ($v0[2]-$v3[2])`;	
+	rotate  -r -p  $v0[0] $v0[1] $v0[2] $b[0] $b[1] $b[2];
+	
+	$v0 = eval("pointPosition MyCube"+$o+".vtx[0]");
+	$v1 = eval("pointPosition MyCube"+$o+".vtx[1]");
+	$v2 = eval("pointPosition MyCube"+$o+".vtx[2]");
+	$v3 = eval("pointPosition MyCube"+$o+".vtx[3]");
+	$v4 = eval("pointPosition MyCube"+$o+".vtx[4]");
+	$v5 = eval("pointPosition MyCube"+$o+".vtx[5]");
+	$v6 = eval("pointPosition MyCube"+$o+".vtx[6]");
+	$v7 = eval("pointPosition MyCube"+$o+".vtx[7]");
+		print ("pointPosition MyCube"+$o+".vtx[0]");
+		refresh -f;
+		pause -sec 0.9;
+	}
+	
